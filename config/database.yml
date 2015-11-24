@@ -1,0 +1,25 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: mysql
+  pool: 5
+  timeout: 5000
+  username: <%= ENV["EXIMIUS_USERNAME"] %>
+  password: <%= ENV["EXIMIUS_PASSWORD"] %>
+  socket: '/tmp/mysql.sock'
+
+development:
+  <<: *default
+  database: Eximius_Development
+
+test:
+  <<: *default
+  database: Eximius_Test
+
+production:
+  <<: *default
+  database: Eximius

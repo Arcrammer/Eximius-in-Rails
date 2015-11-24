@@ -1,0 +1,16 @@
+/**
+ * Main.css
+ *
+ * Eximius
+ * Alexander Rhett Crammer
+ * Advanced Server-Side Languages
+ * Full Sail University
+ * Created Tuesday, 24 Nov. 2015
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  background-color: black;
+}
