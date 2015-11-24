@@ -1,3 +1,12 @@
+<%
+# application.html.erb
+#
+# Eximius
+# Alexander Rhett Crammer
+# Advanced Server-Side Languages
+# Full Sail University
+# Created Tuesday, 24 Nov. 2015
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,6 +32,20 @@
       <%= yield :head %>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/what-we-do/">Our Work</a></li>
+      </ul>
+      <div class="logo">
+        <a href="/">Eximius</a>
+      </div> <!-- .logo -->
+      <ul>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="/register">Sign Up</a></li>
+      </ul>
+      </ul>
+    </nav>
     <div class="container">
       <%= yield %>
     </div> <!-- .container -->

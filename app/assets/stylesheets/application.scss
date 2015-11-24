@@ -1,0 +1,118 @@
+/**
+ * Main.css
+ *
+ * Eximius
+ * Alexander Rhett Crammer
+ * Advanced Server-Side Languages
+ * Full Sail University
+ * Created Tuesday, 24 Nov. 2015
+ *
+ *= require reset
+ *= require_self
+ *= require_tree .
+ */
+
+ /* Variables */
+ $helvetica-stack: "Helvetica Neue", "Helvetica", sans-serif;
+
+ /* Mixins */
+ @mixin helvetica-thin {
+   font: {
+     family: $helvetica-stack;
+     weight: 200;
+   }
+ }
+
+ @mixin golden-text {
+   // Gradient overlay
+   background: -webkit-linear-gradient(top,  rgba(212,175,55,1) 0%,rgba(201,167,58,1) 100%); /* Chrome 10-25, Safari 5.1-6 */
+
+   // Clipping the gradient to the text
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+
+ /* Structure */
+ body {
+   background-color: black;
+ }
+
+ /* Navigation */
+ nav {
+   overflow: auto;
+   text-align: center;
+   width: 100%;
+ }
+
+ nav ul:first-of-type li {
+   float: left;
+   margin-left: 35px;
+ }
+
+ nav ul:last-of-type li {
+   float: right;
+   margin-right: 35px;
+ }
+
+ nav li {
+   display: inline;
+   font-size: 0.75em;
+   padding: 50px 0;
+ }
+
+ nav div.logo {
+   display: inline-block;
+   position: absolute;
+   top: 2.5px;
+   left: 335px;
+   right: 335px;
+ }
+
+ nav div.logo a {
+   @include golden-text;
+   display: block;
+   font: {
+     family: "Bauru";
+     size: 4em;
+   }
+   line-height: 172.5%;
+   padding: 0;
+ }
+
+ nav div.logo a:hover {
+   font-style: normal;
+ }
+
+ nav a,
+ nav a:link,
+ nav a:visited, {
+   @include helvetica-thin;
+   color: #d4bb6c;
+   letter-spacing: 1.75px;
+   padding: 50px 25px;
+   text: {
+     decoration: none;
+     transform: uppercase;
+   }
+   transition: color 125ms;
+ }
+
+ nav a:hover {
+   color: #efdca0;
+   font-style: italic;
+ }
+
+ nav a:active {
+   color: #7b7b7b;
+ }
+
+ /* Fonts */
+ @font-face {
+   font-family: "Bauru";
+   src: font-url('bauru.eot');
+   src: font-url('bauru.eot?#iefix') format('embedded-opentype'),
+        font-url('bauru.woff2') format('woff2'),
+        font-url('bauru.woff') format('woff'),
+        font-url('bauru.ttf') format('truetype'),
+        font-url('bauru.svg#baururegular') format('svg');
+ }
