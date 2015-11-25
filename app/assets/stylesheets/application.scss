@@ -155,6 +155,16 @@ nav {
   }
 }
 
+nav:last-of-type {
+  ul:first-of-type {
+    margin-left: 5%;
+  }
+
+  ul:last-of-type {
+    margin-right: 5%;
+  }
+}
+
 /* Fonts */
 @font-face {
   font-family: "Bauru";
