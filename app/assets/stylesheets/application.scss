@@ -27,6 +27,13 @@ $gold: #d4af37;
   }
 }
 
+@mixin helvetica-ultra-light {
+  font: {
+    family: $helvetica-stack;
+    weight: 100;
+  }
+}
+
 @mixin golden-text {
   // Gradient overlay
   background: -webkit-linear-gradient(top,  rgba(212,175,55,1) 0%,rgba(201,167,58,1) 100%); /* Chrome 10-25, Safari 5.1-6 */
@@ -43,6 +50,15 @@ body {
 
 img {
   width: 100%;
+}
+
+/* Experience */
+::selection {
+  background: deeppink; /* Webkit and Blink */
+}
+
+::-moz-selection {
+  background: deeppink; /* Gecko */
 }
 
 /* Buttons */
@@ -158,6 +174,18 @@ nav {
        font-url('bebasneue_regular.woff') format('woff'),
        font-url('bebasneue_regular.ttf') format('truetype'),
        font-url('bebasneue_regular.svg#bebas_neue_regularregular') format('svg');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: font-url('bebasneue_thin.eot');
+  src: font-url('bebasneue_thin.eot?#iefix') format('embedded-opentype'),
+       font-url('bebasneue_thin.woff2') format('woff2'),
+       font-url('bebasneue_thin.woff') format('woff'),
+       font-url('bebasneue_thin.ttf') format('truetype'),
+       font-url('bebasneue_thin.svg#bebas_neuethin') format('svg');
+  font-weight: 100;
+  font-style: normal;
 }
 
 /**
