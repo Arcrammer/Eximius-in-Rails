@@ -1,5 +1,5 @@
 /**
- * Main.css
+ * application.scss
  *
  * Eximius
  * Alexander Rhett Crammer
@@ -12,107 +12,203 @@
  *= require_tree .
  */
 
- /* Variables */
- $helvetica-stack: "Helvetica Neue", "Helvetica", sans-serif;
+/* Variables */
+$helvetica-stack: "Helvetica Neue", "Helvetica", sans-serif;
+$bebas-stack: "Bebas Neue", $helvetica-stack;
 
- /* Mixins */
- @mixin helvetica-thin {
-   font: {
-     family: $helvetica-stack;
-     weight: 200;
-   }
- }
+/* Colours */
+$gold: #d4af37;
 
- @mixin golden-text {
-   // Gradient overlay
-   background: -webkit-linear-gradient(top,  rgba(212,175,55,1) 0%,rgba(201,167,58,1) 100%); /* Chrome 10-25, Safari 5.1-6 */
+/* Mixins */
+@mixin helvetica-thin {
+  font: {
+    family: $helvetica-stack;
+    weight: 200;
+  }
+}
 
-   // Clipping the gradient to the text
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
- }
+@mixin golden-text {
+  // Gradient overlay
+  background: -webkit-linear-gradient(top,  rgba(212,175,55,1) 0%,rgba(201,167,58,1) 100%); /* Chrome 10-25, Safari 5.1-6 */
 
- /* Structure */
- body {
-   background-color: black;
- }
+  // Clipping the gradient to the text
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
- /* Navigation */
- nav {
-   overflow: auto;
-   text-align: center;
-   width: 100%;
+/* Structure */
+body {
+  background-color: black;
+}
 
-   ul:first-of-type li {
-     float: left;
-     margin-left: 35px;
-   }
+img {
+  width: 100%;
+}
 
-   ul:last-of-type li {
-     float: right;
-     margin-right: 35px;
-   }
+/* Buttons */
+button {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid $gold;
+  font-family: "Bebas Neue";
+  font-size: 1em;
+  padding: 15px 20px;
+  letter-spacing: 1.15px;
+  outline: none;
+  transition: all 175ms;
+}
 
-   li {
-     display: inline;
-     font-size: 0.75em;
-     padding: 60px 0;
-   }
+button:hover {
+  background-color: $gold;
+  border-color: $gold / 3;
+}
 
-   div.logo {
-     display: inline-block;
-     position: absolute;
-     top: 5px;
-     left: 335px;
-     right: 335px;
+button:active {
+  background-color: $gold / 2;
+  border-color: $gold / 4;
+}
 
-     a {
-       @include golden-text;
-       display: block;
-       font: {
-         family: "Bauru";
-         size: 4em;
-       }
-       line-height: 172.5%;
-       padding: 0;
-     }
+/* Navigation */
+nav {
+  overflow: auto;
+  text-align: center;
+  width: 100%;
 
-     a:hover {
-       font-style: normal;
-     }
-   }
+  ul:first-of-type li {
+    float: left;
+    margin-left: 35px;
+  }
 
-   a,
-   a:link,
-   a:visited, {
-     @include helvetica-thin;
-     color: #d4bb6c;
-     letter-spacing: 1.75px;
-     padding: 60px 25px;
-     text: {
-       decoration: none;
-       transform: uppercase;
-     }
-     transition: color 125ms;
-   }
+  ul:last-of-type li {
+    float: right;
+    margin-right: 35px;
+  }
 
-   a:hover {
-     color: #efdca0;
-     font-style: italic;
-   }
+  li {
+    display: inline;
+    font-size: 0.75em;
+    padding: 40px 0;
+  }
 
-   a:active {
-     color: #7b7b7b;
-   }
- }
+  div.logo {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 335px;
+    right: 335px;
 
- /* Fonts */
- @font-face {
-   font-family: "Bauru";
-   src: font-url('bauru.eot');
-   src: font-url('bauru.eot?#iefix') format('embedded-opentype'),
-        font-url('bauru.woff2') format('woff2'),
-        font-url('bauru.woff') format('woff'),
-        font-url('bauru.ttf') format('truetype'),
-        font-url('bauru.svg#baururegular') format('svg');
- }
+    a {
+      @include golden-text;
+      display: block;
+      font: {
+        family: "Bauru";
+        size: 4em;
+      }
+      line-height: 172.5%;
+      padding: 0;
+    }
+
+    a:hover {
+      font-style: normal;
+    }
+  }
+
+  a,
+  a:link,
+  a:visited, {
+    @include helvetica-thin;
+    color: #d4bb6c;
+    letter-spacing: 1.75px;
+    padding: 15px;
+    text: {
+      decoration: none;
+      transform: uppercase;
+    }
+    transition: color 125ms;
+  }
+
+  a:hover {
+    color: #efdca0;
+    font-style: italic;
+  }
+
+  a:active {
+    color: #7b7b7b;
+  }
+}
+
+/* Fonts */
+@font-face {
+  font-family: "Bauru";
+  src: font-url('bauru.eot');
+  src: font-url('bauru.eot?#iefix') format('embedded-opentype'),
+       font-url('bauru.woff2') format('woff2'),
+       font-url('bauru.woff') format('woff'),
+       font-url('bauru.ttf') format('truetype'),
+       font-url('bauru.svg#baururegular') format('svg');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: font-url('bebasneue_regular.eot');
+  src: font-url('bebasneue_regular.eot?#iefix') format('embedded-opentype'),
+       font-url('bebasneue_regular.woff2') format('woff2'),
+       font-url('bebasneue_regular.woff') format('woff'),
+       font-url('bebasneue_regular.ttf') format('truetype'),
+       font-url('bebasneue_regular.svg#bebas_neue_regularregular') format('svg');
+}
+
+/**
+ * Extra fonts (it was easy to go ahead
+ * and add them to the filesystem so...)
+ */
+
+// @font-face {
+//   font-family: 'Bebas Neue';
+//   src: url('bebasneue_bold.eot');
+//   src: url('bebasneue_bold.eot?#iefix') format('embedded-opentype'),
+//        url('bebasneue_bold.woff2') format('woff2'),
+//        url('bebasneue_bold.woff') format('woff'),
+//        url('bebasneue_bold.ttf') format('truetype'),
+//        url('bebasneue_bold.svg#bebas_neuebold') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+//
+// @font-face {
+//   font-family: 'Bebas Neue';
+//   src: url('bebasneue_book.eot');
+//   src: url('bebasneue_book.eot?#iefix') format('embedded-opentype'),
+//        url('bebasneue_book.woff2') format('woff2'),
+//        url('bebasneue_book.woff') format('woff'),
+//        url('bebasneue_book.ttf') format('truetype'),
+//        url('bebasneue_book.svg#bebas_neuebook') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+//
+// @font-face {
+//   font-family: 'Bebas Neue';
+//   src: url('bebasneue_light.eot');
+//   src: url('bebasneue_light.eot?#iefix') format('embedded-opentype'),
+//        url('bebasneue_light.woff2') format('woff2'),
+//        url('bebasneue_light.woff') format('woff'),
+//        url('bebasneue_light.ttf') format('truetype'),
+//        url('bebasneue_light.svg#bebas_neuelight') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+//
+// @font-face {
+//   font-family: 'Bebas Neue';
+//   src: url('bebasneue_thin.eot');
+//   src: url('bebasneue_thin.eot?#iefix') format('embedded-opentype'),
+//        url('bebasneue_thin.woff2') format('woff2'),
+//        url('bebasneue_thin.woff') format('woff'),
+//        url('bebasneue_thin.ttf') format('truetype'),
+//        url('bebasneue_thin.svg#bebas_neuethin') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }

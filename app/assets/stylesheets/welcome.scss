@@ -1,3 +1,74 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/**
+ * welcome.scss
+ *
+ * Eximius
+ * Alexander Rhett Crammer
+ * Advanced Server-Side Languages
+ * Full Sail University
+ * Created Tuesday, 24 Nov. 2015
+ *
+ *= require hover
+ */
+
+/* Extend 'application.scss' */
+@import 'application';
+
+/* Mixins */
+@mixin district-pro {
+  font-family: "District Pro";
+  letter-spacing: 0.675px;
+}
+
+/* Latest Blog Post */
+.latest-blog-post {
+  border-top: 5px solid #313131;
+  border-bottom: 5px solid #313131;
+  color: white;
+  font-family: $bebas-stack;
+  height: 475px;
+  overflow: hidden;
+
+  .content {
+    position: absolute;
+    z-index: 1;
+  }
+
+  h4 {
+    font-size: 2em;
+    letter-spacing: 3.25px;
+    position: relative;
+    top: 65px;
+    left: 50px;
+  }
+
+  p {
+    @include district-pro;
+    position: relative;
+    top: 90px;
+    left: 50px;
+    letter-spacing: 0.675px;
+    line-height: 200%;
+    width: 50%;
+  }
+
+  button {
+    position: relative;
+    top: 135px;
+    left: 50px;
+  }
+
+  img {
+    opacity: 0.25;
+  }
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'District Pro';
+  src: font-url('distproth.eot');
+  src: font-url('distproth.eot?#iefix') format('embedded-opentype'),
+       font-url('distproth.woff2') format('woff2'),
+       font-url('distproth.woff') format('woff'),
+       font-url('distproth.ttf') format('truetype'),
+       font-url('distproth.svg#district_prothin') format('svg');
+}
