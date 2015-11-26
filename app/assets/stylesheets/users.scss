@@ -1,0 +1,129 @@
+/**
+ * users.scss
+ *
+ * Eximius
+ * Alexander Rhett Crammer
+ * Advanced Server-Side Languages
+ * Full Sail University
+ * Created Tuesday, 24 Nov. 2015
+ */
+
+ /* Extend 'application.scss' */
+ @import 'application';
+
+/* Structure */
+body {
+  background-image: image-url('MartinsZemlickis.jpg');
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Form */
+form {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 5px solid #313131;
+  border-radius: 15px;
+  margin-top: 10%;
+  margin-left: 256px;
+  width: 512px;
+}
+
+input#user_username {
+  margin-top: 35px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  @include helvetica-thin;
+  background-color: transparent;
+  border: 0;
+  color: $white;
+  font-size: 1em;
+  letter-spacing: 0.35px;
+  margin: 15px 0;
+  padding: 10px 0;
+  text-align: center;
+  width: 254px;
+}
+
+input[type="submit"] {
+  @include helvetica-thin;
+  font: {
+    size: 0.8em;
+    weight: 500;
+  }
+
+  background-color: mediumseagreen * 1.125;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  letter-spacing: 0.5px;
+  margin: 25px auto;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  transition: all 125ms;
+}
+
+input[type="submit"]:hover {
+  background-color: #4Be28e;
+}
+
+input[type="submit"]:active {
+  background-color: #18482d;
+}
+
+label {
+  @include helvetica-thin;
+  color: $white;
+  display: inline-block;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  line-height: 200%;
+  margin-left: 32.5%;
+}
+
+label:first-of-type {
+  margin-top: 15px;
+}
+
+label:last-of-type {
+  margin-bottom: 15px;
+}
+
+/* Invalid input */
+.field_with_errors {
+  /**
+   * When validation failes
+   * Rails likes to put the
+   * relevant nodes in divs
+   * with this class.
+   */
+  display: inline;
+}
+
+.probs {
+  @include helvetica-thin;
+  font-size: 0.85em;
+  line-height: 175%;
+  letter-spacing: 0.65px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.probs p {
+  border-bottom: 2px solid $gold;
+  margin: 5px auto;
+  margin-left: 10%;
+  width: 80%;;
+}

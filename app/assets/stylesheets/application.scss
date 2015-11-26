@@ -9,7 +9,6 @@
  *
  *= require reset
  *= require_self
- *= require_tree .
  */
 
 /* Variables */
@@ -17,6 +16,7 @@ $helvetica-stack: "Helvetica Neue", "Helvetica", sans-serif;
 $bebas-stack: "Bebas Neue", $helvetica-stack;
 
 /* Colours */
+$white: #e4e4e4;
 $gold: #d4af37;
 
 /* Mixins */

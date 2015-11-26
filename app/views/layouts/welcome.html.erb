@@ -1,0 +1,44 @@
+<%
+# welcome.html.erb
+#
+# Eximius
+# Alexander Rhett Crammer
+# Advanced Server-Side Languages
+# Full Sail University
+# Created Tuesday, 24 Nov. 2015
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title).empty? ? "Eximius" : "Eximius | " + yield(:title) %></title>
+    
+    <!-- Metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="application-name" content="Eximius">
+    <meta name="description" content="Hand reviewed and verified employment listings.">
+    <meta name="author" content="Alexander Rhett Crammer">
+    <meta name="generator" content="Atom, Ruby on Rails, GitHub, Puma, Mac OS X">
+    <meta name="keywords" content="Jobs, Careers, Professional">
+    <%= csrf_meta_tags %>
+
+    <!-- Links -->
+    <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "welcome", "data-turbolinks-track" => true %>
+    <%= yield :extra_scripts %>
+
+    <!-- Scripts -->
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+    <!-- View Specific Elements -->
+    <%= yield :head %>
+  </head>
+  <body>
+    <%= render 'partials/header' %>
+    <div class="container">
+      <%= yield %>
+    </div> <!-- .container -->
+    <%= render 'partials/footer' %>
+  </body>
+</html>
