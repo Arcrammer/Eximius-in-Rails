@@ -32,21 +32,17 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.where("username = ?", params[:user][:username])[0]
-    if user.present? && user.authenticate(params[:user][:password])
-      @userr = true
-    else
-      @userr = false
+    if !params[:user].blank?
+      user = User.where("username = ?", params[:user][:username])[0]
+      if user.authenticate(params[:user][:password])
+        # The user has been authenticated
+        session[:user_id] = user.id
+        redirect_to '/'
+      else
+        # The user provided incorrect credentials
+        flash[:wrong_password] = true
+      end
     end
-    # @userr = user.valid_password?
-    # unless BCrypt::Engine.hash_secret(params[:user][:username], user.password_digest)
-      # session[:user_id] = user.id
-      # redirect_to '/'
-    #   true
-    # else
-    #   false
-    # end
-    # redirect_to '/'
   end
 
   def logout

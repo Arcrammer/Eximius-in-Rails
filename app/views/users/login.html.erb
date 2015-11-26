@@ -7,12 +7,16 @@
 # Full Sail University
 # Created Wednesday, 25 Nov. 2015
 %>
-<p style="color: white"><%= debug @userr %></p>
 <%= form_for :user, html: {class: 'login-form'} do |f| %>
+  <% if flash[:wrong_password] %>
+    <div class="probs">
+      <p class="prob">That wasn't the right password.</p>
+    </div> <!-- .probs -->
+  <% end %>
   <% unless flash[:creation_probs].blank? %>
     <div class="probs">
       <% flash[:creation_probs].each do |prob| %>
-        <p style="color: white"><%= prob %></p>
+        <p><%= prob %></p>
       <% end %>
     </div> <!-- .probs -->
   <% end %>
