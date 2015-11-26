@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   # Authentication
   get '/register' => 'users#create'
+  get '/logout' => 'users#logout'
   post '/register' => 'users#persist'
 end

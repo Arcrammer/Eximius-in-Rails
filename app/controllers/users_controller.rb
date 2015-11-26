@@ -22,11 +22,17 @@ class UsersController < ApplicationController
     ]))
     if @user.save
       flash[:user_created] = true
+      session[:user_id] = @user.id
       redirect_to '/'
     else
       flash[:user_created] = false
       flash[:creation_probs] = @user.errors.to_a
       render 'users/create'
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to '/'
   end
 end
