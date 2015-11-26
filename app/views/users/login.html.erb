@@ -7,7 +7,8 @@
 # Full Sail University
 # Created Wednesday, 25 Nov. 2015
 %>
-<%= form_for :user do |f| %>
+<p style="color: white"><%= debug @userr %></p>
+<%= form_for :user, html: {class: 'login-form'} do |f| %>
   <% unless flash[:creation_probs].blank? %>
     <div class="probs">
       <% flash[:creation_probs].each do |prob| %>
@@ -16,17 +17,8 @@
     </div> <!-- .probs -->
   <% end %>
   <%= f.text_field :username, placeholder: 'Username' %>
-  <%= f.email_field :email_address, placeholder: 'Email' %>
   <br />
   <%= f.password_field :password, placeholder: 'Password' %>
-  <%= f.password_field :password_confirmation, placeholder: 'Again' %>
-  <br />
-  <%= f.label :is_employer, 'I\'m an employer' %>
-  <%= f.check_box :is_employer %>
-  <br />
-  <%= f.label :is_seeker, 'I\'m looking for jobs' %>
-  <%= f.check_box :is_seeker %>
-  <br />
-  <%= f.submit 'Continue' %>
+  <%= f.submit 'Login' %>
 <% end %>
-<a href="/auth/login/" class="under-the-form">Login</a>
+<a href="/auth/register/" class="under-the-form">Create an Account</a>

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Authentication
-  get '/register' => 'users#create'
-  get '/logout' => 'users#logout'
-  post '/register' => 'users#persist'
+  get '/auth/register' => 'users#create'
+  get '/auth/login' => 'users#login'
+  post '/auth/login' => 'users#login'
+  get '/auth/logout' => 'users#logout'
+  post '/auth/register' => 'users#persist'
 end

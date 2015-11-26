@@ -127,3 +127,34 @@ label:last-of-type {
   margin-left: 10%;
   width: 80%;;
 }
+
+/* Login Link */
+a.under-the-form:link,
+a.under-the-form:visited {
+  @include helvetica-thin;
+  font-size: 0.75em;
+
+  color: $white;
+  display: block;
+  letter-spacing: 0.75px;
+  margin: 15px auto;
+  text: {
+    align: center;
+    decoration: none;
+  }
+  transition: all 125ms;
+}
+
+a.under-the-form:hover {
+  color: mediumseagreen * 3.25;
+}
+
+a.under-the-form:active {
+  color: $white / 2.25;
+}
+
+/* Login Form */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  margin-left: 25%;
+}
