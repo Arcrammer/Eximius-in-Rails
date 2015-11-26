@@ -8,6 +8,15 @@ Bundler.require(*Rails.groups)
 
 module Eximius
   class Application < Rails::Application
+    # Use SSL
+    # config.force_ssl = true
+    #
+    # Can't figure out how to
+    # start Puma with it. Putting
+    # it off for deployment with
+    # Phusion Passenger and NGINX.
+    #
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
