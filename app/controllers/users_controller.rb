@@ -7,6 +7,16 @@
 # Created Wednesday, 25 Nov. 2015
 #
 class UsersController < ApplicationController
+
+  def profile
+    if session[:user_id].blank?
+      redirect_to '/'
+    else
+      @user = User.find(session[:user_id])
+      render 'users/profile', layout: false
+    end
+  end
+
   def create
     @user = User.new
   end

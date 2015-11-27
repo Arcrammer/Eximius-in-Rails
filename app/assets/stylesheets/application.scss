@@ -18,6 +18,7 @@ $bebas-stack: "Bebas Neue", $helvetica-stack;
 /* Colours */
 $white: #e4e4e4;
 $gold: #d4af37;
+$blue: #5abbe2;
 
 /* Mixins */
 @mixin helvetica-thin {
@@ -84,6 +85,21 @@ button:hover {
 button:active {
   background-color: $gold / 2;
   border-color: $gold / 4;
+}
+
+button.blue {
+  border-color: $blue;
+  margin: 7.5% 5%;
+  padding: 2.5% 7.5%;
+}
+
+button.blue:hover {
+  background-color: $blue;
+}
+
+button.blue:active {
+  border-color: $blue / 2;
+  background-color: $blue / 2.5;
 }
 
 /* Navigation */
@@ -239,14 +255,3 @@ nav:last-of-type {
 //   font-style: normal;
 // }
 //
-// @font-face {
-//   font-family: 'Bebas Neue';
-//   src: url('bebasneue_thin.eot');
-//   src: url('bebasneue_thin.eot?#iefix') format('embedded-opentype'),
-//        url('bebasneue_thin.woff2') format('woff2'),
-//        url('bebasneue_thin.woff') format('woff'),
-//        url('bebasneue_thin.ttf') format('truetype'),
-//        url('bebasneue_thin.svg#bebas_neuethin') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }

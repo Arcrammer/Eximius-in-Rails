@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Welcome
   root 'welcome#index'
 
+  # Profile
+  get '/profile' => 'users#profile'
+
   # Authentication
   get '/auth/register' => 'users#create'
   get '/auth/login' => 'users#login'

@@ -1,0 +1,86 @@
+/**
+ * profile.scss
+ *
+ * Eximius
+ * Alexander Rhett Crammer
+ * Advanced Server-Side Languages
+ * Full Sail University
+ * Created Friday, 27 Nov. 2015
+ *
+ */
+
+/* Extend 'application.scss' */
+@import 'application.scss';
+
+/* Structure */
+body {
+  background: {
+    image: asset-url('WayneBishop.jpg');
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+}
+
+.container {
+  margin: 5% 12.5%;
+  overflow: auto;
+  width: 75%;
+}
+
+/* Selfie */
+input#selfie {
+  display: none;
+}
+
+.selfie-container {
+  border: 3.5px solid #313131;
+  border-radius: 100%;
+  float: left;
+  height: 224px;
+  overflow: hidden;
+  width: 224px;
+}
+
+.selfie {
+  margin-top: -25%;
+}
+
+/* Form */
+.field-container {
+  margin-left: 40%;
+  width: 70%;
+}
+
+label {
+  @include helvetica-thin;
+  color: white;
+  display: block;
+  font: {
+    size: 1.35em;
+    weight: 100;
+  }
+  letter-spacing: 1px;
+  margin: 2.5% 5% 0;
+}
+
+input[type="text"],
+input[type="email"] {
+  @include helvetica-thin;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $gold;
+  color: $white;
+  font-size: 1em;
+  letter-spacing: 0.65px;
+  padding: 2.5% 5%;
+  margin: 2.5% 5%;
+  width: 60%;
+}
+
+input[type="file"] {
+  color: white;
+  margin: 5% 10%;
+  width: 70%;
+}

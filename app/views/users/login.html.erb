@@ -6,6 +6,10 @@
 # Advanced Server-Side Languages
 # Full Sail University
 # Created Wednesday, 25 Nov. 2015
+#
+content_for :extra_scripts do
+  stylesheet_link_tag "users", "data-turbolinks-track" => true
+end
 %>
 <%= form_for :user, html: {class: 'login-form'} do |f| %>
   <% if flash[:wrong_password] %>
@@ -20,7 +24,7 @@
       <% end %>
     </div> <!-- .probs -->
   <% end %>
-  <%= f.text_field :username, placeholder: 'Username' %>
+  <%= f.text_field :username, placeholder: 'Username', id: 'username' %>
   <br />
   <%= f.password_field :password, placeholder: 'Password' %>
   <%= f.submit 'Login' %>
