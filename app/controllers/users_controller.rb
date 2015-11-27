@@ -18,11 +18,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
   end
 
   def persist
-    @user = User.new(params.require(:user).permit([
+    user = User.new(params.require(:user).permit([
       :username,
       :email_address,
       :password,
@@ -30,13 +29,30 @@ class UsersController < ApplicationController
       :is_employer,
       :is_seeker
     ]))
-    if @user.save
+    selfie = params[:user][:selfie]
+    if selfie.nil?
+      # Friendly reminder that the value
+      # simply doesn't come if there's
+      # no image uploaded, so we'll check
+      # for 'nil' instead of 'blank'
+      user.selfie_filename = nil
+    else
+      # Attempt saving their selfie
+      # to the servers' filesystem
+      local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(selfie.original_filename)
+      File.open(Rails.root.join('public', 'selfies', local_filename), 'wb') do |s|
+        s.write(selfie.read)
+      end
+      user.selfie_filename = local_filename
+    end
+    logger.debug user
+    if user.save
       flash[:user_created] = true
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
       redirect_to '/'
     else
       flash[:user_created] = false
-      flash[:creation_probs] = @user.errors.to_a
+      flash[:creation_probs] = user.errors.to_a
       render 'users/create'
     end
   end

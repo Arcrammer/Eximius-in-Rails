@@ -51,10 +51,10 @@ end
       <%= form_for :user, enctype: 'multipart/form-data' do |f| %>
         <%= f.file_field :selfie, id: 'selfie' %>
         <div class="selfie-container">
-          <% if TRUE # User selfie exists (Not in the database nor model yet) %>
-            <img class="selfie" name="selfie" src="<%= asset_url('selfies/Me.jpg') %>" alt="Me.jpg">
+          <% unless @user.selfie_filename.blank? %>
+            <img class="selfie" name="selfie" id="selfie" src="<%= asset_url("selfies/#{@user.selfie_filename}") %>" alt="<%= @user.selfie_filename %>">
           <% else %>
-            <img class="selfie" name="selfie" src="<%= asset_url('selfies/None.png') %>" alt="None">
+            <img class="selfie" name="selfie" id="selfie" src="<%= asset_url('selfies/None.png') %>" alt="None">
           <% end %>
         </div> <!-- .selfie-container -->
         <div class="field-container">

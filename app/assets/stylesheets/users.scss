@@ -41,7 +41,8 @@ input#username {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="file"] {
   @include helvetica-thin;
   background-color: transparent;
   border: 0;
