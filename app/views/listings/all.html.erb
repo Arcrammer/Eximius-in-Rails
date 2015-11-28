@@ -1,0 +1,36 @@
+<%
+  # create.html.erb
+  #
+  # Eximius
+  # Alexander Rhett Crammer
+  # Advanced Server-Side Languages
+  # Full Sail University
+  # Created Wednesday, 25 Nov. 2015
+  #
+  content_for :title, 'Listings'
+%>
+<% content_for :extra_styles do %>
+  <%= stylesheet_link_tag "listings", "data-turbolinks-track" => true %>
+<% end %>
+<% @listings.each do |l| %>
+  <div class="listing">
+    <h4><%= l.title %></h4>
+    <%= raw File.read(Rails.root.join('public', 'listing_bodies', l.body_filename)) %>
+    <% if session[:user_id] %>
+      <a href="/apply-to/<%= l.id %>">
+        <button>Apply</button>
+      </a>
+    <% else %>
+      <a href="/auth/register/">
+        <button>Sign Up</button>
+      </a>
+    <% end %>
+  </div> <!-- .listing -->
+<% end %>
+<%=
+will_paginate @listings, {
+  class: 'chronologic-buttons',
+  next_label: 'Older',
+  previous_label: 'Earlier'
+}
+%>

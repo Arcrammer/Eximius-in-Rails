@@ -9,6 +9,9 @@
   #
   content_for :title, 'Home'
 %>
+<% content_for :extra_styles do %>
+  <%= stylesheet_link_tag "welcome", "data-turbolinks-track" => true %>
+<% end %>
 <div class="banner latest-blog-post">
   <div class="content">
     <h4>Eximius just moved to New York!</h4>

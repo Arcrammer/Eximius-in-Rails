@@ -1,5 +1,5 @@
 <%
-# welcome.html.erb
+# application.html.erb
 #
 # Eximius
 # Alexander Rhett Crammer
@@ -11,7 +11,7 @@
 <html>
   <head>
     <title><%= yield(:title).empty? ? "Eximius" : "Eximius | " + yield(:title) %></title>
-    
+
     <!-- Metadata -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -24,8 +24,7 @@
 
     <!-- Links -->
     <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag "welcome", "data-turbolinks-track" => true %>
-    <%= yield :extra_scripts %>
+    <%= yield :extra_styles %>
 
     <!-- Scripts -->
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>

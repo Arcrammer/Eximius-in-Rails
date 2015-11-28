@@ -6,6 +6,8 @@ gem 'rails', '4.2.5'
 gem 'mysql'
 # Use Puma to serve it
 gem 'puma'
+# Use will_paginate for pagination
+gem 'will_paginate'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

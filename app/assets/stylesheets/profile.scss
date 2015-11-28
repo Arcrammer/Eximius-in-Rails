@@ -93,6 +93,10 @@ input#selfie {
 }
 
 /* Form */
+form {
+  overflow: hidden;
+}
+
 .field-container {
   margin-left: 40%;
   width: 70%;

@@ -21,6 +21,14 @@ $gold: #d4af37;
 $blue: #5abbe2;
 
 /* Mixins */
+@mixin bebas-neue {
+  font: {
+    family: "Bebas Neue";
+    size: 1em;
+    weight: 500;
+  }
+}
+
 @mixin helvetica-thin {
   font: {
     family: $helvetica-stack;

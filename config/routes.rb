@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   # Profile
   get '/profile' => 'users#profile'
   post '/profile' => 'users#update'
-  
+
+  # Listings
+  get '/listings' => 'listings#all'
+
   # Authentication
   get '/auth/register' => 'users#create'
   get '/auth/login' => 'users#login'
