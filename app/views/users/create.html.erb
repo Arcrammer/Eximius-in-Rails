@@ -19,16 +19,16 @@ end
       <% end %>
     </div> <!-- .probs -->
   <% end %>
-  <%= f.text_field :username, placeholder: 'Username', id: 'username', value: 'iAlexander' %>
-  <%= f.email_field :email_address, placeholder: 'Email', value: 'Alexander2475914@gmail.com' %>
+  <%= f.text_field :username, placeholder: 'Username', id: 'username' %>
+  <%= f.email_field :email_address, placeholder: 'Email' %>
   <br />
-  <%= f.password_field :password, placeholder: 'Password', value: 'secret' %>
-  <%= f.password_field :password_confirmation, placeholder: 'Again', value: 'secret' %>
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <%= f.password_field :password_confirmation, placeholder: 'Again'%>
   <br />
   <%= f.file_field :selfie, accept: 'image/jpg' %>
   <br />
   <%= f.label :is_employer, 'I\'m an employer' %>
-  <%= f.check_box :is_employer, checked: 'checked'  %>
+  <%= f.check_box :is_employer %>
   <br />
   <%= f.label :is_seeker, 'I\'m looking for jobs' %>
   <%= f.check_box :is_seeker %>

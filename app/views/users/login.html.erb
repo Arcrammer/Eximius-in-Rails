@@ -14,7 +14,7 @@ end
 <%= form_for :user, html: {class: 'login-form'} do |f| %>
   <% if flash[:wrong_password] %>
     <div class="probs">
-      <p class="prob">That wasn't the right password.</p>
+      <p class="prob">Check your credentials.</p>
     </div> <!-- .probs -->
   <% end %>
   <% unless flash[:creation_probs].blank? %>

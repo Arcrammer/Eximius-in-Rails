@@ -38,10 +38,6 @@ end
     <%= stylesheet_link_tag "profile", "data-turbolinks-track" => true %>
     <%= yield :extra_scripts %>
 
-    <!-- Scripts -->
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
     <!-- View Specific Elements -->
     <%= yield :head %>
   </head>
@@ -52,7 +48,10 @@ end
         <%= f.file_field :selfie, id: 'selfie' %>
         <div class="selfie-container">
           <% unless @user.selfie_filename.blank? %>
-            <img class="selfie" name="selfie" id="selfie" src="<%= asset_url("selfies/#{@user.selfie_filename}") %>" alt="<%= @user.selfie_filename %>">
+            <div class="selfie-plus">
+              <p>+</p>
+            </div> <!-- .selfie-plus -->
+            <img src="<%= asset_url('selfies/' + @user.selfie_filename) %>" alt="<%= asset_url(@user.selfie_filename) %>" name="selfie" class="selfie">
           <% else %>
             <img class="selfie" name="selfie" id="selfie" src="<%= asset_url('selfies/None.png') %>" alt="None">
           <% end %>
@@ -72,5 +71,9 @@ end
       <% end %>
     </div> <!-- .container -->
     <%= render 'partials/footer' %>
+    <!-- Scripts -->
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "users", "data-turbolinks-track" => true %>
   </body>
 </html>

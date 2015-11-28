@@ -17,7 +17,24 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
+  def update
+    user = User.find(session[:user_id])
+    selfie = params[:user][:selfie]
+    user.username = params[:user][:username]
+    user.email_address = params[:user][:email_address]
+    unless selfie.nil?
+      # The user has uploaded another
+      # selfie; Save it to the server
+      # Attempt saving their selfie
+      # to the servers' filesystem
+      local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(selfie.original_filename)
+      File.open(Rails.root.join('public', 'selfies', local_filename), 'wb') do |s|
+        s.write(selfie.read)
+      end
+      user.selfie_filename = local_filename
+    end
+    user.save
+    redirect_to '/profile'
   end
 
   def persist
@@ -58,16 +75,16 @@ class UsersController < ApplicationController
   end
 
   def login
-    if !params[:user].blank?
+    unless params[:user].blank?
       user = User.where("username = ?", params[:user][:username])[0]
       if user.authenticate(params[:user][:password])
         # The user has been authenticated
         session[:user_id] = user.id
         redirect_to '/'
-      else
-        # The user provided incorrect credentials
-        flash[:wrong_password] = true
       end
+    else
+      # The user provided incorrect credentials
+      flash[:wrong_password] = true
     end
   end
 

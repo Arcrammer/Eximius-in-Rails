@@ -26,10 +26,6 @@
     <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
     <%= yield :extra_scripts %>
 
-    <!-- Scripts -->
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
     <!-- View Specific Elements -->
     <%= yield :head %>
   </head>
@@ -37,5 +33,8 @@
     <div class="container">
       <%= yield %>
     </div> <!-- .container -->
+    <!-- Scripts -->
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>
