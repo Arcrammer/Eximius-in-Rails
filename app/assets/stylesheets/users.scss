@@ -31,7 +31,7 @@ form {
   background-color: rgba(0, 0, 0, 0.5);
   border: 5px solid #313131;
   border-radius: 15px;
-  margin: 10% auto 5%;
+  margin: 10% auto 2.5%;
   width: 512px;
 }
 
@@ -53,6 +53,10 @@ input[type="file"] {
   padding: 10px 0;
   text-align: center;
   width: 254px !important;
+}
+
+input[type="file"] {
+  margin: 0;
 }
 
 input[type="submit"] {
@@ -93,11 +97,17 @@ label {
   margin-left: 32.5%;
 }
 
-label:first-of-type {
-  margin-top: 15px;
+.file-label {
+  font-size: 1em;
+  margin-left: 25%;
+  margin-right: 2.5%;
 }
 
-label:last-of-type {
+.first-checkbox-label {
+  margin-top: 25px;
+}
+
+.last-checkbox-label {
   margin-bottom: 15px;
 }
 

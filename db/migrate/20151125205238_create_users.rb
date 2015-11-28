@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.boolean :is_employer
       t.boolean :is_seeker
+      t.string :cv_filename
       t.string :selfie_filename
       t.timestamps null: false
     end

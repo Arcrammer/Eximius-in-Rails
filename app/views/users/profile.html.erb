@@ -47,10 +47,10 @@ end
       <%= form_for :user, enctype: 'multipart/form-data' do |f| %>
         <%= f.file_field :selfie, id: 'selfie' %>
         <div class="selfie-container">
+          <div class="selfie-plus">
+            <p>+</p>
+          </div> <!-- .selfie-plus -->
           <% unless @user.selfie_filename.blank? %>
-            <div class="selfie-plus">
-              <p>+</p>
-            </div> <!-- .selfie-plus -->
             <img src="<%= asset_url('selfies/' + @user.selfie_filename) %>" alt="<%= asset_url(@user.selfie_filename) %>" name="selfie" class="selfie">
           <% else %>
             <img class="selfie" name="selfie" id="selfie" src="<%= asset_url('selfies/None.png') %>" alt="None">

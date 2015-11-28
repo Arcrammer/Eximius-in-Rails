@@ -25,12 +25,16 @@ end
   <%= f.password_field :password, placeholder: 'Password' %>
   <%= f.password_field :password_confirmation, placeholder: 'Again'%>
   <br />
-  <%= f.file_field :selfie, accept: 'image/jpg' %>
+  <%= f.label :selfie, 'Selfie:', class: 'file-label' %>
+  <%= f.file_field :selfie, id: 'selfie', accept: 'image/jpg' %>
   <br />
-  <%= f.label :is_employer, 'I\'m an employer' %>
+  <%= f.label :cv, 'Résumé:', class: 'file-label' %>
+  <%= f.file_field :cv, id: 'résumé', accept: 'application/pdf' %>
+  <br />
+  <%= f.label :is_employer, 'I\'m an employer', class: 'first-checkbox-label' %>
   <%= f.check_box :is_employer %>
   <br />
-  <%= f.label :is_seeker, 'I\'m looking for jobs' %>
+  <%= f.label :is_seeker, 'I\'m looking for jobs', class: 'last-checkbox-label' %>
   <%= f.check_box :is_seeker %>
   <br />
   <%= f.submit 'Continue' %>

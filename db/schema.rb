@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151125205238) do
     t.string   "password_digest", limit: 255
     t.boolean  "is_employer"
     t.boolean  "is_seeker"
+    t.string   "cv_filename",     limit: 255
     t.string   "selfie_filename", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

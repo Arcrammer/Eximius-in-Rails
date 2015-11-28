@@ -20,19 +20,42 @@ class UsersController < ApplicationController
   def update
     user = User.find(session[:user_id])
     selfie = params[:user][:selfie]
+    cv = params[:user][:cv]
+
+    # Text settings
     user.username = params[:user][:username]
     user.email_address = params[:user][:email_address]
+
+    # File uploads
     unless selfie.nil?
       # The user has uploaded another
       # selfie; Save it to the server
-      # Attempt saving their selfie
-      # to the servers' filesystem
       local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(selfie.original_filename)
       File.open(Rails.root.join('public', 'selfies', local_filename), 'wb') do |s|
-        s.write(selfie.read)
+        if s.write(selfie.read)
+          # The new selfie was saved; Delete the old one
+          File.delete Rails.root.join('public', 'selfies', user.selfie_filename)
+        end
       end
       user.selfie_filename = local_filename
     end
+
+    unless cv.nil?
+      # The user has uploaded another
+      # résumé; Save it to the server
+      local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(cv.original_filename)
+      File.open(Rails.root.join('public', 'résumés', local_filename), 'wb') do |r|
+        logger.debug "CV FILENAME:"
+        logger.debug user.cv_filename
+        if r.write(cv.read) && !user.cv_filename.nil?
+          # The new résumé was saved; Delete the old one
+          logger.debug 'SHOULD HAVE DELETED'
+          File.delete Rails.root.join('public', 'résumés', user.cv_filename)
+        end
+      end
+      user.cv_filename = local_filename
+    end
+
     user.save
     redirect_to '/profile'
   end
@@ -47,6 +70,9 @@ class UsersController < ApplicationController
       :is_seeker
     ]))
     selfie = params[:user][:selfie]
+    cv = params[:user][:cv]
+
+    # File uploads
     if selfie.nil?
       # Friendly reminder that the value
       # simply doesn't come if there's
@@ -62,7 +88,18 @@ class UsersController < ApplicationController
       end
       user.selfie_filename = local_filename
     end
-    logger.debug user
+    if cv.nil?
+      user.cv_filename = nil
+    else
+      # Attempt saving their résumé
+      # to the servers' filesystem
+      local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(cv.original_filename)
+      File.open(Rails.root.join('public', 'résumés', local_filename), 'wb') do |s|
+        s.write(cv.read)
+      end
+      user.cv_filename = local_filename
+    end
+
     if user.save
       flash[:user_created] = true
       session[:user_id] = user.id
@@ -81,10 +118,10 @@ class UsersController < ApplicationController
         # The user has been authenticated
         session[:user_id] = user.id
         redirect_to '/'
+      else
+        # The user provided incorrect credentials
+        flash[:wrong_password] = true
       end
-    else
-      # The user provided incorrect credentials
-      flash[:wrong_password] = true
     end
   end
 
