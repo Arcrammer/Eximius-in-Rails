@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 
-# Ignore 'database.yml' and '/public/assets'
+# More stuff specific to this project
 config/database.yml
 public/assets
+public/listing_bodies
