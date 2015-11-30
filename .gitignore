@@ -20,3 +20,4 @@
 config/database.yml
 public/assets
 public/listing_bodies
+Dockerfile
