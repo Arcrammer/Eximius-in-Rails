@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   # Listings
   get '/listings' => 'listings#all'
+  get '/listings/create' => 'listings#create'
 
   # Authentication
   get '/auth/register' => 'users#create'

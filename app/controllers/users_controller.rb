@@ -21,10 +21,12 @@ class UsersController < ApplicationController
     user = User.find(session[:user_id])
     selfie = params[:user][:selfie]
     cv = params[:user][:cv]
-
-    # Text settings
+    
+    # Basic settings
     user.username = params[:user][:username]
     user.email_address = params[:user][:email_address]
+    user.is_employer = params[:user][:is_employer]
+    user.is_seeker = params[:user][:is_seeker]
 
     # File uploads
     unless selfie.nil?
@@ -45,17 +47,15 @@ class UsersController < ApplicationController
       # résumé; Save it to the server
       local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(cv.original_filename)
       File.open(Rails.root.join('public', 'résumés', local_filename), 'wb') do |r|
-        logger.debug "CV FILENAME:"
-        logger.debug user.cv_filename
         if r.write(cv.read) && !user.cv_filename.nil?
           # The new résumé was saved; Delete the old one
-          logger.debug 'SHOULD HAVE DELETED'
           File.delete Rails.root.join('public', 'résumés', user.cv_filename)
         end
       end
       user.cv_filename = local_filename
     end
 
+    # We're done so we'll save the new data
     user.save
     redirect_to '/profile'
   end
@@ -100,6 +100,7 @@ class UsersController < ApplicationController
       user.cv_filename = local_filename
     end
 
+    # We're done so we'll save the new data
     if user.save
       flash[:user_created] = true
       session[:user_id] = user.id

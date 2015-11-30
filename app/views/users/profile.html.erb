@@ -45,7 +45,12 @@ end
     <%= render 'partials/header' %>
     <div class="container">
       <%= form_for :user, enctype: 'multipart/form-data' do |f| %>
-        <%= f.file_field :selfie, id: 'selfie' %>
+        <% unless flash[:needs_employer_status].blank? %>
+          <div class="probs">
+            <p>You need to be an employer to do that.</p>
+          </div> <!-- .probs -->
+        <% end %>
+        <%= f.file_field :selfie, id: 'selfie', accept: 'image/*' %>
         <div class="selfie-container">
           <div class="selfie-plus">
             <p>+</p>
@@ -64,7 +69,13 @@ end
           <%= f.email_field :email_address, value: @user.email_address %>
           <br />
           <%= f.label :cv, 'Résumé:' %>
-          <%= f.file_field :cv %>
+          <%= f.file_field :cv, accept: 'application/pdf' %>
+          <br />
+          <%= f.label :is_employer, 'I\'m an employer:', class: 'tiny-label' %>
+          <%= f.check_box :is_employer, id: 'user_is_employer', checked: @user.is_employer %>
+          <br />
+          <%= f.label :is_seeker, 'I\'m looking for jobs:', class: 'tiny-label' %>
+          <%= f.check_box :is_seeker, id: 'user_is_seeker', checked: @user.is_seeker %>
           <br />
           <%= f.button 'Save', class: 'blue' %>
         </div> <!-- .field-container -->

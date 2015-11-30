@@ -190,6 +190,83 @@ nav:last-of-type {
   }
 }
 
+/* Links */
+a:link,
+a:link,
+a:link,
+a:link {
+  text-decoration: none;
+}
+
+/* Form */
+form {
+  overflow: hidden;
+}
+
+.field-container {
+  margin-left: 40%;
+  width: 70%;
+}
+
+label {
+  @include helvetica-thin;
+  color: white;
+  display: block;
+  font: {
+    size: 1.35em;
+    weight: 100;
+  }
+  letter-spacing: 1px;
+  margin: 2.5% 5% 0;
+}
+
+.tiny-label {
+  display: inline;
+  font-size: 0.9em;
+  line-height: 300%;
+  margin: 2.5% 0 0 5%;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  @include helvetica-thin;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $gold;
+  color: $white;
+  font-size: 1em;
+  letter-spacing: 0.65px;
+  padding: 2.5% 5%;
+  margin: 2.5% 5%;
+  width: 60%;
+}
+
+input[type="file"] {
+  color: white;
+  margin: 5% 10% 7.5%;
+  width: 70%;
+}
+
+/* Invalid input */
+.probs {
+  @include helvetica-thin;
+  color: white;
+  font-size: 0.85em;
+  line-height: 175%;
+  letter-spacing: 0.65px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.probs p {
+  border-bottom: 1px solid $gold;
+  margin: 15px auto;
+  margin-left: 10%;
+  width: 80%;;
+}
+
 /* Fonts */
 @font-face {
   font-family: "Bauru";

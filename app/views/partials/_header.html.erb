@@ -1,5 +1,22 @@
 <nav>
-  <% if session[:user_id].blank? %>
+  <% unless session[:user_id].blank? %>
+    <% user = User.find(session[:user_id]) %>
+    <ul>
+      <li><a href="/">Welcome</a></li>
+      <% if user.is_employer && request.env['PATH_INFO'].include?('listings') %>
+        <li><a href="/listings/create">Post a Listing</a></li>
+      <% else %>
+        <li><a href="/listings">Listings</a></li>
+      <% end %>
+    </ul>
+    <div class="logo">
+      <a href="/">Eximius</a>
+    </div> <!-- .logo -->
+    <ul>
+      <li><a href="/auth/logout/">Logout</a></li>
+      <li><a href="/profile">Profile</a></li>
+    </ul>
+  <% else %>
     <ul>
       <li><a href="/">Welcome</a></li>
       <li><a href="/what-we-do/">Our Work</a></li>
@@ -8,20 +25,8 @@
       <a href="/">Eximius</a>
     </div> <!-- .logo -->
     <ul>
-        <li><a href="/listings">Listings</a></li>
-        <li><a href="/auth/register">Sign Up</a></li>
-    </ul>
-  <% else %>
-    <ul>
-      <li><a href="/">Welcome</a></li>
       <li><a href="/listings">Listings</a></li>
-    </ul>
-    <div class="logo">
-      <a href="/">Eximius</a>
-    </div> <!-- .logo -->
-    <ul>
-      <li><a href="/auth/logout/">Logout</a></li>
-      <li><a href="/profile">Profile</a></li>
+      <li><a href="/auth/register">Sign Up</a></li>
     </ul>
   <% end %>
 </nav>
