@@ -6,6 +6,32 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Businesses
+businesses = [
+  'Ullmannite',
+  'T5 Labs',
+  'Expa',
+  'The New York Times',
+  'Wall Street Journal',
+  'Meetup',
+  'Amazon, Inc.',
+  'Blue Apron',
+  'Audible, Inc.',
+  'Condé Nast',
+  'Shutterfly',
+  'Adobe',
+  'Smith & Keller',
+  'TIME Magazine',
+  'Grid'
+]
+
+businesses.each do |b|
+  Business.create({
+    name: b
+  })
+end
+
+# Listings
 possible_locations = [
   'Chelsea, Manhattan',
   'Williamsburg, Brooklyn',
