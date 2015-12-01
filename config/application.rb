@@ -12,10 +12,7 @@ module Eximius
     # config.force_ssl = true
     #
     # Can't figure out how to
-    # start Puma with it. Putting
-    # it off for deployment with
-    # Phusion Passenger and NGINX.
-    #
+    # start Puma with it (SSL)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

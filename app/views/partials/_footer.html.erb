@@ -1,5 +1,5 @@
 <nav>
-  <% unless session[:user_id].blank? %>
+  <% unless session[:user_id].nil? %>
     <% user = User.find(session[:user_id]) %>
     <ul>
       <li><a href="/">Welcome</a></li>

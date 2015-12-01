@@ -8,117 +8,187 @@
  * Created Saturday, 28 Nov. 2015
  */
 
- /* Extend 'application.scss' */
- @import 'application';
+/* Extend 'application.scss' */
+@import 'application';
 
- /* Structure */
- .container {
-   margin: 5% auto;
-   width: 85%;
- }
+/* Structure */
+.container {
+  margin: 5% auto;
+  width: 85%;
+}
 
- /* Listings */
- .listing {
-   @include helvetica-thin;
-   color: $white;
+/* Listings */
+.listing {
+  @include helvetica-thin;
+  color: $white;
 
-   letter-spacing: 0.5px;
-   line-height: 150%;
-   margin: 5% auto;
+  letter-spacing: 0.5px;
+  line-height: 150%;
+  margin: 5% auto;
 
-   h4 {
-     @include bebas-neue;
-     font-size: 2.75em;
-     text-transform: uppercase;
-     letter-spacing: 1.75px;
-     margin-bottom: 2.5%;
-   }
+  h4 {
+    @include bebas-neue;
+    font-size: 2.75em;
+    text-transform: uppercase;
+    letter-spacing: 1.75px;
+    line-height: 115%;
+    margin-bottom: 2.5%;
+  }
 
-   h6 {
-     font: {
-       size: 0.9em;
-       weight: 600;
-     }
-     letter-spacing: 1.35px;
-     margin: 10px 0 5px;
-     text-transform: uppercase;
-   }
+  h5 {
+    @extend h4;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    margin-top: -0.75%;
+    margin-bottom: 1.75%;
+  }
 
-   p {
-     font-size: 0.925em;
-     padding: 4px 2.5px;
-     width: 75%;
-
-     b {
-       font-weight: 600;
-     }
-   }
-
-   li {
-     line-height: 135%;
-   }
-
-   button {
-     margin-top: 2.5%;
-     margin-left: 0.5%;
-   }
- }
-
- .listing:first-of-type {
-   margin-top: 7.5%;
- }
-
- /* Chronologic Buttons and Links */
- .chronologic-buttons {
-   text-align: center;
-
-   // Links
-   a:link:not(.previous_page):not(.next_page),
-   a:visited:not(.previous_page):not(.next_page),
-   em {
-     @include helvetica-thin;
-     color: $white;
-
-     display: inline-block;
-     padding: 2.5%;
-     text-decoration: none;
-   }
-
-   a:hover:not(.previous_page):not(.next_page),
-   em {
-     color: $gold * 1.25;
-   }
-
-   a:active:not(.previous_page):not(.next_page),
-   em {
-     color: $gold;
-   }
-
-   // Buttons
-   .previous_page,
-   .next_page {
-      @include bebas-neue;
-      background-color: transparent;
-      color: white;
-      cursor: pointer;
-      text-transform: uppercase;
-      border: 2px solid $gold;
-      padding: 15px 20px;
-      letter-spacing: 1.15px;
-      outline: none;
-      text-decoration: none;
-      transition: all 175ms;
+  h6 {
+    font: {
+      size: 0.9em;
+      weight: 600;
     }
+    letter-spacing: 1.35px;
+    margin: 10px 0 5px;
+    text-transform: uppercase;
+  }
 
-   .previous_page:hover,
-   .next_page:hover {
-      background-color: $gold;
-      border-color: $gold / 3;
-   }
+  p {
+    font-size: 0.925em;
+    padding: 4px 2.5px;
+    width: 75%;
 
-   .previous_page:active,
-   .next_page:active {
-      background-color: $gold / 2;
-      border-color: $gold / 4;
+    b {
+      font-weight: 600;
     }
   }
+
+  li {
+    line-height: 135%;
+  }
+
+  button {
+    display: block;
+    margin-top: 2.5%;
+    margin-left: 0.5%;
+  }
+}
+
+.listing:first-of-type {
+  margin-top: 7.5%;
+}
+
+/* Creating Listings */
+.listing-creation-form {
+  margin: auto;
+  width: 50%;
+
+  .probs {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
+  p.prob:last-of-type {
+    margin-bottom: 7.5%;
+  }
+
+  h4 {
+    @include helvetica-thin;
+    color: white;
+    font: {
+      weight: 100;
+      size: 1.25em;
+    }
+    letter-spacing: 1.5px;
+    margin-bottom: 6.5%;
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 5% 0;
+    margin: 2.5% 0;
+    resize: vertical;
+    text-indent: 7.5%;
+    transition: all 225ms;
+    width: 100%;
+  }
+
+  input[type="text"]:hover,
+  textarea:hover {
+    background-color: rgba(255, 255, 255, 0.125);
+  }
+
+  input[type="text"]:focus,
+  textarea:focus {
+    background-color: rgba(255, 255, 255, 0.125);
+    outline: 2px solid $gold / 2;
+  }
+
+  textarea {
+    line-height: 150%;
+    padding: 7.5%;
+    text-indent: 0;
+    width: 85%;
+  }
+
+  button {
+    margin: 7.5%;
+    margin-left: 26%;
+    width: 50%;
+  }
+}
+
+/* Chronologic Buttons and Links */
+.chronologic-buttons {
+  text-align: center;
+
+  // Links
+  a:link:not(.previous_page):not(.next_page),
+  a:visited:not(.previous_page):not(.next_page),
+  em {
+    @include helvetica-thin;
+    color: $white;
+
+    display: inline-block;
+    padding: 2.5%;
+    text-decoration: none;
+  }
+
+  a:hover:not(.previous_page):not(.next_page),
+  em {
+    color: $gold * 1.25;
+  }
+
+  a:active:not(.previous_page):not(.next_page),
+  em {
+    color: $gold;
+  }
+
+  // Buttons
+  .previous_page,
+  .next_page {
+    @include bebas-neue;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 2px solid $gold;
+    padding: 15px 20px;
+    letter-spacing: 1.15px;
+    outline: none;
+    text-decoration: none;
+    transition: all 175ms;
+  }
+
+  .previous_page:hover,
+  .next_page:hover {
+    background-color: $gold;
+    border-color: $gold / 3;
+  }
+
+  .previous_page:active,
+  .next_page:active {
+    background-color: $gold / 2;
+    border-color: $gold / 4;
+  }
+}

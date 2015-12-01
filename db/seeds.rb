@@ -39,7 +39,7 @@ businesses = [
 
 businesses.each do |b|
   Business.create({
-    name: b
+    business: b
   })
 end
 
@@ -83,6 +83,7 @@ possible_positions = [
   listing = Listing.create({
     title: possible_title_intros.sample + ' ' + possible_positions.sample,
     body_filename: (0...50).map { ('a'..'z').to_a[rand(26)] }.join + '.html',
+    business_id: rand(1..businesses.count),
     location: possible_locations.sample
   })
   listing_body = File.open(Rails.root.join('public', 'listing_bodies', listing.body_filename), 'wb') do |b|

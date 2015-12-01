@@ -15,6 +15,7 @@
 <% @listings.each do |l| %>
   <div class="listing">
     <h4><%= l.title %></h4>
+    <h5><%= time_ago_in_words(l.created_at) %> ago in <%= l.location %> at <%= l.business.business.force_encoding('UTF-8') %></h5>
     <%= raw File.read(Rails.root.join('public', 'listing_bodies', l.body_filename)) %>
     <% if session[:user_id] %>
       <a href="/apply-to/<%= l.id %>">

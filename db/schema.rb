@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20151130204559) do
 
   create_table "businesses", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "business",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151130204559) do
   create_table "listings", force: :cascade do |t|
     t.string   "location",      limit: 255
     t.string   "title",         limit: 255
+    t.integer  "business_id",   limit: 4
     t.string   "body_filename", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false

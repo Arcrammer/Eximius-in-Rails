@@ -12,3 +12,21 @@
 <% content_for :extra_styles do %>
   <%= stylesheet_link_tag "listings", "data-turbolinks-track" => true %>
 <% end %>
+<%= form_for :listing, html: {class: 'listing-creation-form'} do |f| %>
+  <% unless flash[:creation_probs].blank? %>
+    <div class="probs">
+      <% flash[:creation_probs].each do |prob| %>
+        <p><%= prob %></p>
+      <% end %>
+    </div> <!-- .probs -->
+  <% end %>
+  <h4>Create a Listing:</h4>
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <br />
+  <%= f.text_field :location, placeholder: 'Location' %>
+  <br />
+  <%= f.text_field :business_name, placeholder: 'Business Name' %>
+  <br />
+  <%= f.text_area :listing_body, placeholder: 'Description', rows: 16, cols: 40 %>
+  <%= f.button 'Submit for Review' %>
+<% end %>
