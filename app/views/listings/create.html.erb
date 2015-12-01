@@ -21,11 +21,11 @@
     </div> <!-- .probs -->
   <% end %>
   <h4>Create a Listing:</h4>
-  <%= f.text_field :title, placeholder: 'Title' %>
+  <%= f.text_field :title, autocomplete: 'off', placeholder: 'Title' %>
   <br />
-  <%= f.text_field :location, placeholder: 'Location' %>
+  <%= f.text_field :location, autocomplete: 'off', placeholder: 'Location' %>
   <br />
-  <%= f.text_field :business_name, placeholder: 'Business Name' %>
+  <%= f.text_field :business_name, autocomplete: 'off', placeholder: 'Business Name' %>
   <br />
   <%= f.text_area :listing_body, placeholder: 'Description', rows: 16, cols: 40 %>
   <%= f.button 'Submit for Review' %>
