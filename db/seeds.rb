@@ -82,7 +82,7 @@ possible_positions = [
 # Maximum age listings can be once seeded
 earliest_creation_date = Time.now() - 60 * 60 * 24 * 7 * 2
 
-100.times do |t|
+1000.times do |t|
   listing = Listing.create({
     title: possible_title_intros.sample + ' ' + possible_positions.sample,
     body_filename: (0...50).map { ('a'..'z').to_a[rand(26)] }.join + '.html',

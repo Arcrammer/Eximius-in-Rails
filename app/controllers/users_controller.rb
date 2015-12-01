@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     user = User.find(session[:user_id])
     selfie = params[:user][:selfie]
     cv = params[:user][:cv]
-    
+
     # Basic settings
     user.username = params[:user][:username]
     user.email_address = params[:user][:email_address]
@@ -35,8 +35,10 @@ class UsersController < ApplicationController
       local_filename = (0...50).map { ('a'..'z').to_a[rand(26)] }.join + File.extname(selfie.original_filename)
       File.open(Rails.root.join('public', 'selfies', local_filename), 'wb') do |s|
         if s.write(selfie.read)
-          # The new selfie was saved; Delete the old one
-          File.delete Rails.root.join('public', 'selfies', user.selfie_filename)
+          unless user.selfie_filename.blank?
+            # The new selfie was saved; Delete the old one
+            File.delete Rails.root.join('public', 'selfies', user.selfie_filename)
+          end
         end
       end
       user.selfie_filename = local_filename
