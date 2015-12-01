@@ -79,12 +79,17 @@ possible_positions = [
   'a Python Engineer'
 ];
 
+# Maximum age listings can be once seeded
+earliest_creation_date = Time.now() - 60 * 60 * 24 * 7 * 2
+
 100.times do |t|
   listing = Listing.create({
     title: possible_title_intros.sample + ' ' + possible_positions.sample,
     body_filename: (0...50).map { ('a'..'z').to_a[rand(26)] }.join + '.html',
     business_id: rand(1..businesses.count),
-    location: possible_locations.sample
+    location: possible_locations.sample,
+    created_at: Time.at((Time.now().to_f - earliest_creation_date.to_f) * rand + earliest_creation_date.to_f),
+    updated_at: Time.at((Time.now().to_f - earliest_creation_date.to_f) * rand + earliest_creation_date.to_f)
   })
   listing_body = File.open(Rails.root.join('public', 'listing_bodies', listing.body_filename), 'wb') do |b|
     b.write(File.read(Rails.root.join('db', 'listing_bodies.html.erb')))
