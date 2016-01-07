@@ -17,11 +17,12 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # Use Capistrano for deployment
-gem 'rvm-capistrano'
+# gem 'rvm-capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-gem 'capistrano-passenger'
+gem 'capistrano-linked-files'
+# gem 'capistrano-passenger'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

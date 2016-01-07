@@ -35,14 +35,12 @@ set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
 namespace :deploy do
-
   after :deploy, :finished do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         execute :bundle, :install
-        execute :rake, 'db:migrate'
+        execute :rake, 'db:migrate db:seed'
       end
     end
   end
-
 end

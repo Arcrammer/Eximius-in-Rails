@@ -1,0 +1,28 @@
+# database.yml
+#
+# Eximius
+# Alexander Rhett Crammer
+# Advanced Server-Side Languages
+# Full Sail University
+# Created Tuesday, 24 Nov. 2015
+#
+default: &default
+  adapter: mysql
+  pool: 5
+  timeout: 5000
+  username: alexander
+  password: kt8xZ35Kx8fkd8Gp
+
+development:
+  <<: *default
+  database: Eximius_Development-Rails
+
+test:
+  <<: *default
+  database: Eximius_Test-Rails
+
+production:
+  <<: *default
+  adapter: mysql
+  database: Eximius-Rails
+

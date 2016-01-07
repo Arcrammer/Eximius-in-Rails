@@ -17,7 +17,7 @@
 /tmp
 
 # More stuff specific to this project
-config/database.yml
+# config/database.yml
 public/assets
 public/listing_bodies
 Dockerfile

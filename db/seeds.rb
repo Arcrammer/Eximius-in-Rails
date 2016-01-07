@@ -79,6 +79,10 @@ possible_positions = [
   'a Python Engineer'
 ];
 
+# Make sure the 'listing_bodies' folder exists
+listing_bodies_dir = "#{Rails.root}/public/listing_bodies"
+Dir.mkdir(listing_bodies_dir) unless File.exists?(listing_bodies_dir)
+
 # Maximum age listings can be once seeded
 earliest_creation_date = Time.now() - 60 * 60 * 24 * 7 * 2
 creationOfThisPost = Time.at((Time.now().to_f - earliest_creation_date.to_f) * rand + earliest_creation_date.to_f)
